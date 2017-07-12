@@ -6,7 +6,11 @@ const ValueComponent = (props) => {
   }
 
   return (
-    <input placeholder={ props.name } onChange={ onChangeHandler }/>
+    <div className="control column is-2">
+      <input placeholder={ props.name }
+             onChange={ onChangeHandler }
+             className="input" />
+    </div>
   )
 }
 

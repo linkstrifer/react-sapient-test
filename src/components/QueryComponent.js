@@ -1,14 +1,22 @@
 import React from 'react';
 
 const QueryComponent = (props) => (
-  <div>
+  <div className="container">
     {
       props.queries.map((query, index) => (
-        <span key={ index }>
+        <a key={ index }
+           onClick={ () => {
+             props.removeQuery(index)
+           }}
+           className="tag is-dark is-medium">
           {
-            `${query.combinator} ${query.entity}.${query.attribute} ${query.operator} ${query.value} `
+            index > 0 ? `${query.combinator} ` : null
           }
-        </span>
+          {
+            `${query.entity}.${query.attribute} ${query.operator} ${query.value} `
+          }
+          <span className="delete"></span>
+        </a>
       ))
     }
   </div>

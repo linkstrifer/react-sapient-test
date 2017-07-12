@@ -43,49 +43,53 @@ class FormContainer extends Component {
 
   render() {
     return (
-      <form onSubmit={ this.submitHandler }>
-        {
-          this.props.queriesCount > 0 && (
-            <SelectComponent name="combinator"
-                             options={ this.props.data.combinator }
-                             onChangeHandler={ this.changeState }
-                             currentValue={ this.state.combinator }/>
-          )
-        }
-        <SelectComponent name="entity"
-                         options={ this.props.data.entity }
-                         onChangeHandler={ this.changeState }
-                         currentValue={ this.state.entity } />
-        { this.state.entity && (
-          <SelectComponent name="attribute"
-                           options={ this.getAttribute() }
+      <form onSubmit={ this.submitHandler } className="box">
+        <div className="columns">
+          {
+            this.props.queriesCount > 0 && (
+              <SelectComponent name="combinator"
+                               options={ this.props.data.combinator }
+                               onChangeHandler={ this.changeState }
+                               currentValue={ this.state.combinator }/>
+            )
+          }
+          <SelectComponent name="entity"
+                           options={ this.props.data.entity }
                            onChangeHandler={ this.changeState }
-                           currentValue={ this.state.attribute } />
-        ) }
-        {
-          this.state.attribute && (
-            <SelectComponent name="operator"
-                             options={ this.getOperators() }
+                           currentValue={ this.state.entity } />
+          { this.state.entity && (
+            <SelectComponent name="attribute"
+                             options={ this.getAttribute() }
                              onChangeHandler={ this.changeState }
-                             currentValue={ this.state.operator } />
-          )
-        }
-        {
-          this.state.attribute && (
-            <ValueComponent name="value"
-                            onChangeHandler={ this.changeState }/>
-          )
-        }
-        {
-          (this.state.operator && this.state.value) && (
-            <button type="submit">
-              add
-            </button>
-          )
-        }
-        <button type="button" onClick={ this.clearState }>
-          clear
-        </button>
+                             currentValue={ this.state.attribute } />
+          ) }
+          {
+            this.state.attribute && (
+              <SelectComponent name="operator"
+                               options={ this.getOperators() }
+                               onChangeHandler={ this.changeState }
+                               currentValue={ this.state.operator } />
+            )
+          }
+          {
+            this.state.attribute && (
+              <ValueComponent name="value"
+                              onChangeHandler={ this.changeState }/>
+            )
+          }
+        </div>
+        <div className="contaner">
+          {
+            (this.state.operator && this.state.value) && (
+              <button type="submit" className="button is-success">
+                add
+              </button>
+            )
+          }
+          <button type="button" onClick={ this.clearState } className="button is-danger">
+            clear
+          </button>
+        </div>
       </form>
     )
   }
