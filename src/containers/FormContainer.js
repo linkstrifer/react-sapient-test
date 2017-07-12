@@ -4,7 +4,7 @@ import SelectComponent from '../components/SelectComponent'
 import ValueComponent from '../components/ValueComponent'
 
 const initialState = {
-  combinator: '',
+  combinator: 'AND',
   entity: '',
   attribute: '',
   operator: '',
@@ -14,7 +14,7 @@ const initialState = {
 class FormContainer extends Component {
   state = initialState
 
-  changeState = (name, value) => {
+  changeState = (event, name, value) => {
     this.setState({
       [name]: value
     })
@@ -74,6 +74,8 @@ class FormContainer extends Component {
           {
             this.state.attribute && (
               <ValueComponent name="value"
+                              type={ this.state.attribute }
+                              enumValues={ this.props.data.enum }
                               onChangeHandler={ this.changeState }/>
             )
           }

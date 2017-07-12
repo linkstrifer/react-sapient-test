@@ -9,7 +9,16 @@ select,
   width: 100%;
 }
 
+.select.multiple {
+  display: block;
+}
+
+.select.multiple,
+.select.multiple select {
+  height: auto;
+}
+
 .tag,
 .button {
-  margin: 0 5px;
+  margin: 5px;
 }

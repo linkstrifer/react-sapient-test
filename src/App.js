@@ -15,7 +15,7 @@ class App extends Component {
 
   addQuery = (query) => {
     this.setState((prevState) => {
-      queries: prevState.queries.push(query)
+      prevState.queries.push(query)
     })
   }
 
