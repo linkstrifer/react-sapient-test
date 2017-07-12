@@ -20,8 +20,6 @@ const SelectComponent = (props) => {
       value = event.target.value
     }
 
-    console.log(value)
-
     props.onChangeHandler(event, props.name, value)
   }
 
