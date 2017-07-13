@@ -8,27 +8,22 @@ import HeroComponent from './components/HeroComponent'
 import QueryComponent from './components/QueryComponent'
 import StringComponent from './components/StringComponent'
 
+import store from './core/store/store'
+import { dataLoaded } from './core/actions/data'
+
 class App extends Component {
   state = {
     queries: []
   }
 
-  addQuery = (query) => {
-    this.setState((prevState) => {
-      prevState.queries.push(query)
+  componentDidMount() {
+    store.subscribe(() => {
+      this.setState({
+        queries: store.getState().queries
+      })
     })
-  }
 
-  removeQuery = (queryIndex) => {
-    this.setState((prevState) => {
-      const newState = prevState.queries.filter((query, index) => (
-        index !== queryIndex
-      ))
-
-      return {
-        queries: newState
-      }
-    })
+    store.dispatch(dataLoaded(data))
   }
 
   render() {
@@ -36,11 +31,11 @@ class App extends Component {
       <div className="section">
         <HeroComponent />
         <div className="container">
-          <FormContainer data={ data } addQuery={ this.addQuery } queriesCount={ this.state.queries.length } />
-          <QueryComponent queries={ this.state.queries } removeQuery={ this.removeQuery } />
+          <FormContainer />
+          <QueryComponent />
           {
             this.state.queries.length > 0 && (
-              <StringComponent queries={ this.state.queries } />
+              <StringComponent />
             )
           }
         </div>

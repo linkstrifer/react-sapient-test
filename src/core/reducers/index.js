@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux';
 
-import { queries } from './queries'
+import queries from './queries'
+import ui from './ui'
+import defaults from './defaults'
 
 const configuration = combineReducers({
-  // reducers
-  queries
+  queries,
+  ui,
+  defaults
 });
 
 export default configuration;

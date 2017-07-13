@@ -10,8 +10,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.10",
-    "redux": "^3.7.1",
-    "reselect": "^3.0.1"
+    "redux": "^3.7.1"
   },
   "scripts": {
     "start": "react-scripts start",
