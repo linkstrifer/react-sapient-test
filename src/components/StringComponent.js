@@ -2,17 +2,28 @@ import React, { Component } from 'react'
 
 import store from '../core/store/store'
 
+let unsubscribe
+
 class StringComponent extends Component {
   state = {
     queries: []
   }
 
   componentWillMount() {
-    store.subscribe(() => {
+    const getReduxData = () => {
       this.setState({
         queries: store.getState().queries
       })
+    }
+    unsubscribe = store.subscribe(() => {
+      getReduxData()
     })
+
+    getReduxData()
+  }
+
+  componentWillUnmount() {
+    unsubscribe()
   }
 
   render() {

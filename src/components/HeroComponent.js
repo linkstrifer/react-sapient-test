@@ -1,5 +1,7 @@
 import React from 'react'
 
+// Just for styling purposes
+
 const HeroComponent = () => (
   <div className="hero">
     <div className="hero-body">

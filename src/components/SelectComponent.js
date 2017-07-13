@@ -1,5 +1,16 @@
 import React from 'react';
 
+/*
+  Select controled component
+
+  Takes some props, create a select based on those props and attach some events
+    - multiple [boolean]
+    - name [string]
+    - currentValue [string]
+    - options [array]
+    - onChangeHandler [function]
+*/
+
 const SelectComponent = (props) => {
   function onChangeHandler(event) {
     let value

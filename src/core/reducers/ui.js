@@ -1,6 +1,6 @@
 import { INPUT_CHANGE, CLEAR_UI } from '../actions/constants'
 
-const defaultState = {
+const initialState = {
   combinator: 'AND',
   entity: '',
   attribute: '',
@@ -9,7 +9,7 @@ const defaultState = {
   queriesCount: 0
 }
 
-export default function ui(state = defaultState, action) {
+export default function ui(state = initialState, action) {
   switch (action.type) {
     case INPUT_CHANGE:
       const stateCopy = {...state}
@@ -18,7 +18,7 @@ export default function ui(state = defaultState, action) {
 
       return stateCopy
     case CLEAR_UI:
-      return defaultState
+      return initialState
     default:
       return state
   }

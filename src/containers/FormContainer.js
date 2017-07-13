@@ -7,6 +7,18 @@ import store from '../core/store/store'
 import { inputChange, clear } from '../core/actions/ui'
 import { add as addQuery } from '../core/actions/queries'
 
+/*
+  Form container
+
+  Just a container to control some stateless components using his state
+
+  state {
+    ui: to control all the input values
+    defaults: some defaults values for the inputs
+    queriesCount: self explanatory...
+  }
+*/
+
 class FormContainer extends Component {
   state = {
     ui: {},

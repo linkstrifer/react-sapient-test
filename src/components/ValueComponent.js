@@ -2,6 +2,22 @@ import React from 'react';
 
 import SelectComponent from '../components/SelectComponent'
 
+/*
+  Multipurpose uncontroled component
+
+  Takes some props, create a input based on those props and attach some events
+    - name [string]
+    - type [string]
+    - enumValues [array]
+    - onChangeHandler [function]
+
+  Possible types:
+    - DATE: input type date
+    - BOOLEAN: mount a SelectComponent with [name, options = [true, false], onChangeHandler] props
+    - ENUM: mount a SelectComponent with [name, options = props.enumValues, onChangeHandler] props
+    - default: input type text
+*/
+
 const ValueComponent = (props) => {
   let input
   const type = props.type.split('_')[1]

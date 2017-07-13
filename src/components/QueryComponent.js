@@ -3,6 +3,12 @@ import React, { Component } from 'react';
 import store from '../core/store/store'
 import { remove as removeQuery } from '../core/actions/queries'
 
+/*
+  This component takes state.queries and map it into some links
+
+  The clickHandler deletes a query from the state
+*/
+
 class QueryComponent extends Component {
   state = {
     queries: []
