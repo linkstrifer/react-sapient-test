@@ -12,3 +12,7 @@ There is a linter error, something about `jsx-a11y/href-no-hash`, no idea what i
 ## Git branching
 
 There are two versions of the test, one with redux and one without it, you can find those on `react-redux` and `react-only` branches
+
+## Limitations
+
+I made a mistake and this only works with node >= 6 because i used create-react-app
