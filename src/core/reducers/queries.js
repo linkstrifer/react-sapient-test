@@ -8,7 +8,6 @@ export default function queries(state = [], action) {
       copyState.push(action.data)
 
       return copyState
-      break;
     case REMOVE_QUERY:
       const newState = state.filter((query, index) => {
         return index !== action.data.index

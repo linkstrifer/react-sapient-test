@@ -17,7 +17,6 @@ export default function ui(state = defaultState, action) {
       stateCopy[action.data.name] = action.data.value
 
       return stateCopy
-      break;
     case CLEAR_UI:
       return defaultState
     default:
