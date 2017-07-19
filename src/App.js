@@ -14,9 +14,16 @@ class App extends Component {
   }
 
   addQuery = (query) => {
-    this.setState((prevState) => {
-      prevState.queries.push(query)
-    })
+    if (this.state.queries.length > 0 &&
+        query.entity !== this.state.queries[0].entity) {
+      this.setState({
+        queries: [query]
+      })
+    } else {
+      this.setState((prevState) => {
+        prevState.queries.push(query)
+      })
+    }
   }
 
   removeQuery = (queryIndex) => {
