@@ -24,7 +24,7 @@ const SelectComponent = (props) => {
   }
 
   return (
-    <div className="column is-2 control">
+    <div className="column is-3 control">
       <span className={ 'select' + (props.multiple ? ' multiple' : '') }>
         <select onChange={ onChangeHandler }
                 value={ props.currentValue }

@@ -12,7 +12,7 @@ const ValueComponent = (props) => {
 
   switch (type) {
     case 'DATE':
-      input = <div className="control column is-2">
+      input = <div className="control column is-3">
                 <input placeholder={ props.name }
                        type="date"
                        onChange={ onChangeHandler }

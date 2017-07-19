@@ -50,6 +50,12 @@ class FormContainer extends Component {
     return (
       <form onSubmit={ this.submitHandler } className="box">
         <div className="columns">
+          <SelectComponent name="entity"
+                           options={ this.props.data.entity }
+                           onChangeHandler={ this.changeState }
+                           currentValue={ this.state.entity } />
+        </div>
+        <div className="columns">
           {
             this.props.queriesCount > 0 && (
               <SelectComponent name="combinator"
@@ -58,10 +64,6 @@ class FormContainer extends Component {
                                currentValue={ this.state.combinator }/>
             )
           }
-          <SelectComponent name="entity"
-                           options={ this.props.data.entity }
-                           onChangeHandler={ this.changeState }
-                           currentValue={ this.state.entity } />
           { this.state.entity && (
             <SelectComponent name="attribute"
                              options={ this.getAttribute() }
