@@ -47,7 +47,12 @@ class FormContainer extends Component {
   }
 
   getOperators = () => {
-    return Object.getOwnPropertyNames(this.state.defaults.operator)
+    return Object.getOwnPropertyNames(this.state.defaults.operator).map((operator) => (
+      {
+        id: operator,
+        label: this.state.defaults.operator[operator]
+      }
+    ))
   }
 
   clearState = () => {
